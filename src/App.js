@@ -5,7 +5,8 @@ import './App.css';
 import Home from './components/Home'
 import About from './components/About'
 import Packages from './components/Packages'
-
+import Nav from 'react-bootstrap/Nav'
+import Container from 'react-bootstrap/Container'
 
 function App() {
   
@@ -15,9 +16,9 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <header>
-          <h1 className="title">Welcome to Monty's Mineral SPA</h1>
-
+        
+        <h1 className="title">Welcome to Monty's Mineral SPA</h1>
+        {/* <header>
           <div className="navBar">
             <ul>
               <li>
@@ -31,7 +32,27 @@ function App() {
               </li>
             </ul>
           </div>
-        </header>
+        </header> */}
+
+        <Container>
+            <Nav defaultActiveKey="/" variant="tabs" fill>
+                <Nav.Item>
+                    <Nav.Link href="/"> 
+                        <Link to="/">Home</Link>
+                    </Nav.Link>
+                </Nav.Item>
+                <Nav.Item >
+                    <Nav.Link eventKey={"aboutPage"}> 
+                        <Link to="/about">About Us</Link>
+                    </Nav.Link>
+                </Nav.Item>
+                <Nav.Item >
+                    <Nav.Link eventKey={"packagesPage"}> 
+                        <Link to="/packages">Our Packages</Link> 
+                    </Nav.Link>
+                </Nav.Item>
+            </Nav>
+        </Container>
 
         <div className="display">
           <Route path="/" component={Home} />
@@ -40,7 +61,6 @@ function App() {
         </div>
 
       </Router>
-
     </div>
   );
 }
